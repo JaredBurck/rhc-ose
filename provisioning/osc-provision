@@ -159,7 +159,7 @@ provision_openshift() {
     num_etcd_instances=${num_of_etcd}
     echo "etcd will NOT be on master"
   fi
-  if [[ $num_etcd_instances > 0 ]]; then
+  if [ "${num_etcd_instances}" -gt "0" ]; then
     echo "Provisioning $num_etcd_instances etcd. This could take several minutes."
     etcd_ips=$(provision_etcds) || error_out "Provisioning Failed." $ERROR_CODE_PROVISION_FAILURE
     echo "Complete!"
